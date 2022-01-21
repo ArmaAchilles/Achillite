@@ -42,7 +42,6 @@ def build_composition(init_body):
 
     with open(tpl_root / 'composition.sqe', 'r') as stream:
         body = Template(stream.read()).safe_substitute(
-            COMPOSITION_NAME = meta_data['MOD_NAME'],
             COMPOSITION_INIT = init_body
         )
     with open(composition_dir / 'composition.sqe', 'w') as stream:

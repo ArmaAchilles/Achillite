@@ -1,42 +1,22 @@
 version=54;
-center[]={3104.2717,21.251942,5500.7935};
+center[]={0,0,0};
 class items
 {
-	items=1;
-	class Item0
-	{
-		dataType="Layer";
-		name="$COMPOSITION_NAME";
-		class Entities
-		{
-			items=1;
-			class Item0
-			{
-				dataType="Layer";
-				name="$COMPOSITION_NAME";
-				class Entities
-				{
-					items=1;
-					class Item0
-					{
-						dataType="Object";
-						class PositionInfo
-						{
-							position[]={0,1.0489998,0};
-						};
-						side="Empty";
-						flags=5;
-						class Attributes
-						{
-							init="$COMPOSITION_INIT";
-						};
-						id=1;
-						type="VR_3DSelector_01_default_F";
-					};
-				};
-				id=0;
-			};
-		};
-		id=2;
-	};
+    items=1;
+    class Item0
+    {
+        dataType="Object";
+        class PositionInfo
+        {
+            position[]={0,0,0};
+        };
+        side="Empty";
+        flags=5;
+        class Attributes
+        {
+            init="$COMPOSITION_INIT";
+        };
+        id=1;
+        type="VR_3DSelector_01_default_F";
+    };
 };
