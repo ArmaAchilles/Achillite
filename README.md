@@ -1,4 +1,26 @@
-# Achillite
+<h1 align="left">Achillite</h1>
+<p align="left">
+    <img src="https://raw.githubusercontent.com/kexanone/Achillite/master/extras/assets/img/achilles-wallpaper.jpg" width="500" alt="Achillite">
+</p>
+
+<p align="left">
+    <a href="https://github.com/kexanone/Achillite/releases/latest">
+        <img src="https://img.shields.io/github/release/kexanone/Achillite.svg?label=Version&colorB=007EC6&style=flat-square" alt="ACL Version">
+    </a>
+    <a href="https://github.com/kexanone/Achillite/issues">
+        <img src="https://img.shields.io/github/issues-raw/kexanone/Achillite.svg?style=flat-square&label=Issues" alt="ACL Issues">
+    </a>
+    <a href="https://github.com/kexanone/Achillite/releases">
+        <img src="https://img.shields.io/github/downloads/kexanone/Achillite/total.svg?label=GitHub%20Downloads&colorB=brightgreen&style=flat-square" alt="ACL Downloads">
+    </a>
+    <a href="https://github.com/kexanone/Achillites/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/License-GPLv3-red.svg?style=flat-square" alt="ACL License">
+    </a>
+    <a href="https://discord.gg/kN7Jnhr">
+        <img src="https://img.shields.io/discord/364823341506363392.svg?label=Discord&style=flat-square&colorB=7683D5" alt="ZEN Discord">
+    </a>
+</p>
+
 **Achillite** is a light-weighted client-side editor expansion for [Arma 3 Zeus](https://store.steampowered.com/app/275700/Arma_3_Zeus/) servers that run `zeusCompositionScriptLevel=2`.
 It is partially based on the now _deprecated_ [Achilles](https://github.com/ArmaAchilles/Achilles) mod.
 If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enhanced](https://github.com/zen-mod/ZEN) instead.
