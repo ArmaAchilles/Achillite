@@ -1,2 +1,2 @@
 # Achillite
-A lite version of Achilles for official Arma 3 public Zeus servers.
+A lite version of Achilles for the official Arma 3 public Zeus servers.
