@@ -1,6 +1,6 @@
 <h1 align="left">Achillite</h1>
 <p align="left">
-    <img src="https://raw.githubusercontent.com/ArmaAchilles/Achillite/main/extras/assets/img/achilles-wallpaper.jpg" width="795" alt="Achillite">
+    <img src="https://raw.githubusercontent.com/ArmaAchilles/Achillite/main/extras/assets/img/achilles-wallpaper.jpg" width="512" alt="Achillite">
 </p>
 
 <p align="left">
