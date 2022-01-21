@@ -21,7 +21,7 @@ All good? Then proceed and fill out all items below.
 -->
 
 **Arma 3 Version:** `x.xx` (stable / rc / dev)
-**The Longest Day Version:** `3.x.x` (stable / dev + commit hash)
+**Achillite Version:** `1.x.x` (stable / dev + commit hash)
 <!-- Make sure to reproduce the issue with only CBA and ZEN on a newly created mission! -->
 
 **Mods:**
