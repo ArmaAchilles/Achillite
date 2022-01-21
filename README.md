@@ -1,7 +1,13 @@
 # Achillite
-**Achillite** is a light-weighted editor expansion for [Arma 3 Zeus](https://store.steampowered.com/app/275700/Arma_3_Zeus/) servers that run `zeusCompositionScriptLevel=2`.
+**Achillite** is a light-weighted client-side editor expansion for [Arma 3 Zeus](https://store.steampowered.com/app/275700/Arma_3_Zeus/) servers that run `zeusCompositionScriptLevel=2`.
 It is partially based on the now _deprecated_ [Achilles](https://github.com/ArmaAchilles/Achilles) mod.
 If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enhanced](https://github.com/zen-mod/ZEN) instead.
+
+## Installation
+1. Subscribe to the composition on the Steam Workshop or get the composition manually from the [GitHub release](https://github.com/Kexanone/Achillite/releases).
+2. Play as Zeus.
+3. Place the "Achillite Initializer" composition found in the category "Others".
+4. Have fun!
 
 ## Features
 - _TBD_
@@ -20,3 +26,6 @@ Please use our [Issue Tracker](https://github.com/kexanone/Achillite/issues) to 
 
 ## License
 Achillite is licensed under the The GNU General Public License v3.0 ([GPLv3](https://github.com/kexanone/Achillite/blob/master/LICENSE)).
+
+## Disclaimer
+Depending on the setting of the Zeus server, certain remote executions may lead to a kick from the server. Use this composition and especially the execute code module at your own risk.
