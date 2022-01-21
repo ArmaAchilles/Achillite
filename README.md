@@ -41,7 +41,7 @@ We have a list of tasks and bugs on our issue tracker on GitHub.
 Please comment on issues you want to contribute with, to avoid duplicating effort.
 
 To contribute something to Achillite, simply fork this repository and submit your pull requests for review by other collaborators.
-Remember to add yourself to the `AUTHORS.txt`.
+Remember to add yourself to the [`AUTHORS.txt`](https://github.com/ArmaAchilles/Achillite/blob/main/AUTHORS.txt).
 
 ### Submitting Issues and Feature Requests
 Please use our [Issue Tracker](https://github.com/ArmaAchilles/Achillite/issues) to report a bug, propose a feature, or suggest changes to the existing ones.
