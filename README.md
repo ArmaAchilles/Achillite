@@ -28,7 +28,7 @@ If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enh
 ## Installation
 1. Subscribe to the composition on the Steam Workshop or get the composition manually from the [GitHub release](https://github.com/ArmaAchilles/Achillite/releases).
 2. Play as Zeus.
-3. Place the "Achillite Initializer" composition found in the category "Others".
+3. Place the "Achillite Initializer" composition found in the category "Other".
 4. Have fun!
 
 ## Features
