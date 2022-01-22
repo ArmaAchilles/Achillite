@@ -22,7 +22,7 @@
 </p>
 
 **Achillite** is a light-weighted client-side editor expansion for [Arma 3 Zeus](https://store.steampowered.com/app/275700/Arma_3_Zeus/) servers that run `zeusCompositionScriptLevel=2`.
-It is partially based on the now _deprecated_ [Achilles](https://github.com/ArmaAchilles/Achilles) mod.
+It is partially based on [Zeus Enhanced](https://github.com/zen-mod/ZEN) and the now _deprecated_ [Achilles](https://github.com/ArmaAchilles/Achilles) mod.
 If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enhanced](https://github.com/zen-mod/ZEN) instead.
 
 ## Installation
