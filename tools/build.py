@@ -9,8 +9,6 @@ from sqf_validator import main as validator
 os.chdir(Path(__file__).parent)
 with open('../meta.json', 'r') as stream:
     meta_data = json.load(stream)
-with open('../meta.json', 'r') as stream:
-    meta_data = json.load(stream)
 
 src_root = Path('../components')
 tpl_root = Path('../composition')
