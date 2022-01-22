@@ -13,6 +13,6 @@ if (typeOf _logic == "module_f") then {
     // Set the module name for the list of placed assets in the Zeus interface.
     _logic setName _moduleName;
     (ACL_registeredModules get _categoryName get _moduleName) params ["_code"];
-    [getPos _logic, _entityUnderCursor] call _code;
+    [getPosASL _logic, _entityUnderCursor] call _code;
     deleteVehicle _logic;
 };
