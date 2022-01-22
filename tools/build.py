@@ -13,7 +13,7 @@ with open('../meta.json', 'r') as stream:
     meta_data = json.load(stream)
 
 src_root = Path('../components')
-tpl_root = Path('../template')
+tpl_root = Path('../composition')
 build_root = Path('../build')
 
 def preprocess(file):
