@@ -32,7 +32,25 @@ If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enh
 4. Have fun!
 
 ## Features
+### Modules
+- Ambient Animation
+- Garrison Buildings
+- Artillery
+- Add/remove full Arsenal
+- Change side relations
+- Change player's side
+- Teleport players
+- Heal and revive players
+- Set view distances
+- Set respawn time
 - _TBD_
+### Keybinds
+- Eject/paradrop cargo
+- Remote control
+### API
+- Custom dialogs with `ACL_fnc_createDialog`
+- Custom keybinds with `ACL_fnc_registerKeybind`
+- Custom modules with `ACL_fnc_registerModule`
 
 ## Contributing
 You can help out with the ongoing development by looking for potential bugs in our code base, or by contributing new features.
@@ -40,7 +58,8 @@ We are always welcoming new pull requests containing bug fixes, refactors and ne
 We have a list of tasks and bugs on our issue tracker on GitHub.
 Please comment on issues you want to contribute with, to avoid duplicating effort.
 
-To contribute something to Achillite, simply fork this repository and submit your pull requests for review by other collaborators.
+If you want to add a new module, but are not confident with pull requests, just create an [issue](https://github.com/ArmaAchilles/Achillite/issues/new?labels=feature&template=new_module.md) and post the parameters for `ACL_fnc_registerModule`.
+For general contributions to Achillite, simply fork this repository and submit your pull requests for review by other collaborators.
 Remember to add yourself to the [`AUTHORS.txt`](https://github.com/ArmaAchilles/Achillite/blob/main/AUTHORS.txt).
 
 ### Submitting Issues and Feature Requests
