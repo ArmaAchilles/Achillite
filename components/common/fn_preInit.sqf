@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-ACL_fnc_addObject = {
+ACL_fnc_addObjects = {
     [getAssignedCuratorLogic player, [_this, true]] remoteExecCall ["addCuratorEditableObjects", 2]
 };
 
@@ -22,7 +22,7 @@ ACL_fnc_enableFatigue = {
     }
 };
 
-ACL_fnc_removeObject = {
+ACL_fnc_removeObjects = {
     [getAssignedCuratorLogic player, [_this, true]] remoteExecCall ["removeCuratorEditableObjects", 2]
 };
 
