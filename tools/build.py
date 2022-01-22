@@ -17,8 +17,15 @@ tpl_root = Path('../composition')
 build_root = Path('../build')
 
 def preprocess(file):
-    output = subprocess.check_output(['gcc', '-x', 'c', '-E', str(file)])
-    lines = output.decode('utf8').splitlines()
+    if os.name == 'nt':
+        # Use CL on Windows
+        subprocess.check_output(['CL', '/P', file.name], cwd=file.parent)
+        with file.with_suffix('.i').open('r') as stream:
+            lines = stream.readlines()
+    else:
+        # Use GCC on Linux
+        output = subprocess.check_output(['gcc', '-x', 'c', '-E', str(file)])
+        lines = output.decode('utf8').splitlines()
     lines = filter(lambda line: not line.startswith('#'), lines)
     return os.linesep.join(lines)
 
