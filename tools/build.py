@@ -36,7 +36,7 @@ def minimize(body):
 def build_composition(init_body):
     init_body = init_body.replace('"', '""')
     init_body = f'if(local this)then{{{init_body}deleteVehicle this}}'
-    
+
     composition_dir = build_root / meta_data['MOD_NAME']
     composition_dir.mkdir(exist_ok=True, parents=True)
 
@@ -63,20 +63,29 @@ if __name__ == '__main__':
     print('---------------------')
     print()
     i_fn = 0
-    body = ''
+    preInitBody = ''
+    initBody = ''
+    postInitBody = ''
     for component_dir in src_root.iterdir():
         if component_dir.is_file():
             continue
         component_name = component_dir.stem
-        for fn_file in component_dir.glob('functions/fn_*.sqf'):
+        for fn_file in component_dir.glob('fn_*.sqf'):
             fn_name = fn_file.stem[3:]
-            if component_name == 'common':
-                fn_var = f'{meta_data["MOD_PREFIX"]}_fnc_{fn_name}'
-            else:
-                fn_var = f'{meta_data["MOD_PREFIX"]}_{component_name}_fnc_{fn_name}'
             content = minimize(preprocess(fn_file))
-            body += f'{fn_var}={content};'
+            if fn_name == 'preInit':
+                preInitBody += f'{content};'
+            elif fn_name == 'postInit':
+                postInitBody += f'{content};'
+            # Execute module registration directly
+            elif component_name == 'modules':
+                initBody += f'{content};'
+            # Store all other functions in variables
+            else:
+                fn_var = f'{meta_data["MOD_PREFIX"]}_fnc_{fn_name}'
+                preInitBody += f'{fn_var}={{{content}}};'
             i_fn += 1
+    body = preInitBody + initBody + postInitBody
     print(f'Processed {i_fn} functions, {len(body.encode("utf8")) / 1e3:.1f} KB in total.')
     print()
     print('BUILDING COMPOSITION')
