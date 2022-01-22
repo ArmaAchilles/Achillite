@@ -35,7 +35,15 @@ def minimize(body):
 
 def build_composition(init_body):
     init_body = init_body.replace('"', '""')
-    init_body = f'if(local this)then{{{init_body}deleteVehicle this}}'
+    init_body = minimize(f'''
+        if(local this)then{{
+            if(isNil ""ACL_initDone"")then{{
+                {init_body}
+                [objNull,""{meta_data["MOD_NAME"]} initialized!""]call BIS_fnc_showCuratorFeedbackMessage;
+                ACL_initDone=true
+            }};
+        deleteVehicle this
+    }}''')
 
     composition_dir = build_root / meta_data['MOD_NAME']
     composition_dir.mkdir(exist_ok=True, parents=True)
