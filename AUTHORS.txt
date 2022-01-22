@@ -1,0 +1,11 @@
+# ACHILLITE CONTRIBUTOR LIST
+# If you contributed, but are not listed here,
+# contact one of the Core Team members.
+#
+# Feel free to add yourself to this when creating a pull
+# request, preferably including an email address.
+
+# CORE TEAM
+Kexanone <kexanone@gmail.com>
+
+# CONTRIBUTORS
