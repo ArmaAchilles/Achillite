@@ -33,24 +33,28 @@ If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enh
 
 ## Features
 ### Modules
-- Ambient Animation
-- Garrison Buildings
-- Artillery
-- Add/remove full Arsenal
-- Change side relations
-- Change player's side
-- Teleport players
-- Heal and revive players
-- Set view distances
-- Set respawn time
-- _TBD_
+- [x] Ambient Animation
+- [x] Set Captive
+- [x] Garrison Buildings
+- [ ] Paradrop
+- [ ] Artillery
+- [x] Add/remove full Arsenal
+- [ ] Change side relations
+- [ ] Change player's side
+- [ ] Teleport players
+- [x] Heal and revive players
+- [x] Set view distance
+- [x] Set respawn time
+- [x] Fatigue
+- [x] Update editable objects
+- [x] Global hint
+- [ ] _TBD_
 ### Keybinds
-- Eject/paradrop cargo
-- Remote control
+- [x] Arsenal (<kbd>ALT</kbd>)
+- [x] Remote control (<kbd>CTRL</kbd>)
 ### API
-- Custom dialogs with `ACL_fnc_createDialog`
-- Custom keybinds with `ACL_fnc_registerKeybind`
-- Custom modules with `ACL_fnc_registerModule`
+- [x] Custom dialogs with `ACL_fnc_createDialog`
+- [x] Custom modules with `ACL_fnc_registerModule`
 
 ## Contributing
 You can help out with the ongoing development by looking for potential bugs in our code base, or by contributing new features.
