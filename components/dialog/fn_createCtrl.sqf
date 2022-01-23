@@ -25,11 +25,11 @@ switch (_ctrlType) do {
         };
         _ctrlEdit ctrlSetText _initialValue;
         _ctrlEdit setVariable ["ACL_data", _initialValue];
-        _ctrlEdit ctrlSetEventHandler ["KeyUp", " \
-            params ['_ctrl']; \
-            _ctrl setVariable ['ACL_data', ctrlText _ctrl]; \
-            true \
-        "];
+        _ctrlEdit ctrlAddEventHandler ["KeyUp", {
+            params ["_ctrl"];
+            _ctrl setVariable ["ACL_data", ctrlText _ctrl];
+            true
+        }];
     };
     case "TOOLBOX": {
         _args params [
@@ -48,11 +48,11 @@ switch (_ctrlType) do {
         };
         _ctrlToolbox lbSetCurSel _initialValue;
         _ctrlToolbox setVariable ["ACL_data", _initialValue];
-        _ctrlToolbox ctrlSetEventHandler ["ToolBoxSelChanged", " \
-            params ['_ctrl', '_sel']; \
-            _ctrl setVariable ['ACL_data', _sel]; \
-            true \
-        "];
+        _ctrlToolbox ctrlAddEventHandler ["ToolBoxSelChanged", {
+            params ["_ctrl", "_sel"];
+            _ctrl setVariable ["ACL_data", _sel];
+            true
+        }];
     };
     case "COMBO": {
         _args params [
@@ -71,11 +71,11 @@ switch (_ctrlType) do {
         };
         _ctrlCombo lbSetCurSel _initialValue;
         _ctrlCombo setVariable ["ACL_data", _initialValue];
-        _ctrlCombo ctrlSetEventHandler ["LBSelChanged", " \
-            params ['_ctrl', '_sel']; \
-            _ctrl setVariable ['ACL_data', _sel]; \
-            true \
-        "];
+        _ctrlCombo ctrlAddEventHandler ["LBSelChanged", {
+            params ["_ctrl", "_sel"];
+            _ctrl setVariable ["ACL_data", _sel];
+            true
+        ];
     };
 };
 
