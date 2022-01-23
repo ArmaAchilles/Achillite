@@ -28,14 +28,14 @@ def preprocess(file):
     return os.linesep.join(lines)
 
 def minimize(body):
-    # remove whitespace and add dummy character at end
-    body = body.strip() + '\0'
+    # remove whitespace and add dummy characters at end
+    body = body.strip() + 3*'\0'
     prev_char = ''
     tmp_body = ''
     is_string = False
     buffer = body[:3]
-    for i_char in range(1, len(body) - 2):
-        delete_char = False
+    for i_char in range(len(body) - 3):
+        i_char_delete = -1
 
         if buffer[1] == '"':
             is_string = not is_string
@@ -45,28 +45,29 @@ def minimize(body):
                 re.match('\W', buffer[0]) or
                 re.match('\W', buffer[2])
             ):
-                delete_char = True
+                i_char_delete = 1
+        elif buffer[:2] == ';;':
+            i_char_delete = 1
+        elif buffer[:2] == ';}':
+            i_char_delete = 0
 
-        if delete_char:
-            buffer = buffer[0] + buffer[2] + body[i_char+2]
+        if i_char_delete == 0:
+            buffer = buffer[1:] + body[i_char+3]
+        elif i_char_delete == 1:
+            buffer = buffer[0] + buffer[2] + body[i_char+3]
         else:
             tmp_body += buffer[0]
-            buffer = buffer[1:] + body[i_char+2]
-    else:
-        tmp_body += buffer[:2]
-    body = tmp_body
+            buffer = buffer[1:] + body[i_char+3]
 
-    # remove extra semicolons
-    body = re.sub(r";}", r"}", body)
-    return body
+    return tmp_body
 
 def build_composition(init_body):
     init_body = minimize(f'''
         if(local this)then{{
-            if(isNil "ACL_initDone")then{{
+            if(isNil "{meta_data["MOD_PREFIX"]}_initDone")then{{
                 {init_body}
                 [objNull,"{meta_data["MOD_NAME"]} initialized!"]call BIS_fnc_showCuratorFeedbackMessage;
-                ACL_initDone=true
+                {meta_data["MOD_PREFIX"]}_initDone=true
             }};
         deleteVehicle this
     }}''')
