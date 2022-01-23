@@ -28,27 +28,49 @@ def preprocess(file):
     return os.linesep.join(lines)
 
 def minimize(body):
-    body = re.sub(r"localize\s*\"([^\W]*)\"", lambda x: '"{}"'.format(localizeString(x.group(1))), body)
-    # remove whitespace
-    body = re.sub(r"\s+([\W])", r"\1", body)
-    body = re.sub(r"([\W])\s+", r"\1", body)
-    body = re.sub(r"([^\W])\s+([^\W])", r"\1 \2", body)
-    body = re.sub(r"^\s+([^\s])", r"\1", body)
+    # remove whitespace and add dummy character at end
+    body = body.strip() + '\0'
+    prev_char = ''
+    tmp_body = ''
+    is_string = False
+    buffer = body[:3]
+    for i_char in range(1, len(body) - 2):
+        delete_char = False
+
+        if buffer[1] == '"':
+            is_string = not is_string
+        elif buffer[1].isspace():
+            if not is_string and (
+                buffer[2].isspace() or
+                re.match('\W', buffer[0]) or
+                re.match('\W', buffer[2])
+            ):
+                delete_char = True
+
+        if delete_char:
+            buffer = buffer[0] + buffer[2] + body[i_char+2]
+        else:
+            tmp_body += buffer[0]
+            buffer = buffer[1:] + body[i_char+2]
+    else:
+        tmp_body += buffer[:2]
+    body = tmp_body
+
     # remove extra semicolons
     body = re.sub(r";}", r"}", body)
     return body
 
 def build_composition(init_body):
-    init_body = init_body.replace('"', '""')
     init_body = minimize(f'''
         if(local this)then{{
-            if(isNil ""ACL_initDone"")then{{
+            if(isNil "ACL_initDone")then{{
                 {init_body}
-                [objNull,""{meta_data["MOD_NAME"]} initialized!""]call BIS_fnc_showCuratorFeedbackMessage;
+                [objNull,"{meta_data["MOD_NAME"]} initialized!"]call BIS_fnc_showCuratorFeedbackMessage;
                 ACL_initDone=true
             }};
         deleteVehicle this
     }}''')
+    init_body = init_body.replace('"', '""')
 
     composition_dir = build_root / meta_data['MOD_NAME']
     composition_dir.mkdir(exist_ok=True, parents=True)
@@ -85,7 +107,7 @@ if __name__ == '__main__':
         component_name = component_dir.stem
         for fn_file in component_dir.glob('fn_*.sqf'):
             fn_name = fn_file.stem[3:]
-            content = minimize(preprocess(fn_file))
+            content = preprocess(fn_file)
             if fn_name == 'preInit':
                 preInitBody += f'{content};'
             elif fn_name == 'postInit':
