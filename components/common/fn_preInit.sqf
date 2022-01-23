@@ -8,6 +8,16 @@ ACL_fnc_allowDamage = {
     _this remoteExecCall ["allowDamage", _this select 0];
 };
 
+ACL_fnc_buildingPositions = {
+    private _posList = (_this buildingPos -1) select {(_x nearEntities ["Man", 1]) isEqualTo []};
+    _posList apply {
+        _posASL = ATLToASL _x;
+        // Fix building positions by searching the floor
+        _intersections = lineIntersectsSurfaces [_posASL vectorAdd [0, 0, 0.1], _posASL vectorAdd [0, 0, -3]];
+        _intersections select 0 select 0
+    }
+};
+
 ACL_fnc_enableFatigue = {
     if (isNil "ACL_fatigueEnabled") then {
         ACL_fatigueEnabled = _this;
@@ -30,6 +40,27 @@ ACL_fnc_getGroupLogic = {
     ACL_groupLogic // Return value
 };
 
+ACL_fnc_getPlayerRespawnTime = {
+    if (isNil "ACL_playerRespawnTime") then {
+        getNumber (missionConfigFile >> "respawnDelay") // Return value
+    } else {
+        ACL_playerRespawnTime // Return value
+    }
+};
+
+ACL_fnc_isInsideBuilding =
+{
+    params ["_pos", "_building"];
+    _pos = _pos vectorAdd [0, 0, EYE_HEIGHT];
+
+    // if we have at least 3 walls and a roof, we are inside
+    if (_building in (lineIntersectsObjs [_pos, _pos vectorAdd REL_REF_POS_VERTICAL])) then {
+        {_building in (lineIntersectsObjs [_pos, _pos vectorAdd _x])} count REL_REF_POS_LIST_HORIZONTAL >= 3 // return value
+    } else {
+        false // return value
+    }
+};
+
 ACL_fnc_removeObjects = {
     [getAssignedCuratorLogic player, [_this, true]] remoteExecCall ["removeCuratorEditableObjects", 2]
 };
@@ -48,9 +79,9 @@ ACL_fnc_setPlayerRespawnTime = {
 };
 
 ACL_fnc_setViewDistance = {
-    params ["_distance", "_objectDistance"];
+    params ["_distance", "_objectDistance", "_shadowDistance"];
     _distance remoteExecCall ["setViewDistance", 0, "ACL_setViewDistance"];
-    _objectDistance remoteExecCall ["setObjectViewDistance", 0, "ACL_setObjectViewDistance"]
+    [[_objectDistance, _shadowDistance]] remoteExecCall ["setObjectViewDistance", 0, "ACL_setObjectViewDistance"]
 };
 
 if (isNil "ACL_waitUntilAndExecute_queue") then {
