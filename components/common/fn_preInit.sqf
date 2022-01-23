@@ -22,6 +22,14 @@ ACL_fnc_enableFatigue = {
     }
 };
 
+ACL_fnc_getGroupLogic = {
+    if (isNil "ACL_groupLogic") then {
+        ACL_groupLogic = createGroup sideLogic;
+        ACL_groupLogic deleteGroupWhenEmpty false;
+    };
+    ACL_groupLogic // Return value
+};
+
 ACL_fnc_removeObjects = {
     [getAssignedCuratorLogic player, [_this, true]] remoteExecCall ["removeCuratorEditableObjects", 2]
 };
