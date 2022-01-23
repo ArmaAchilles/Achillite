@@ -3,7 +3,7 @@
 params [
     "_categoryName",
     "_moduleName",
-    "_code",
+    "_code", // Can alternatively be the class name of a module
     ["_icon", "\a3\Ui_F_Curator\Data\Logos\arma3_curator_eye_64_ca.paa"]
 ];
 

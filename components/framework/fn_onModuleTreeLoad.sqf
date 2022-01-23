@@ -11,6 +11,12 @@ _ctrl ctrlAddEventHandler ["TreeSelChanged", {
     }
 }];
 _display displayAddEventHandler ["Unload", ACL_fnc_onModuleTreeUnload];
+{
+    (_display displayCtrl _x) ctrlAddEventHandler ["MouseButtonDblClick", ACL_fnc_onMouseButtonDblClick];
+} forEach [
+    IDC_RSCDISPLAYCURATOR_MOUSEAREA,
+    IDC_RSCDISPLAYCURATOR_MAINMAP
+];
 
 // Load custom modules
 {
@@ -36,10 +42,12 @@ _display displayAddEventHandler ["Unload", ACL_fnc_onModuleTreeUnload];
         if (_moduleIdx < 0) then {
             _moduleIdx =  _ctrl tvAdd [[_categoryIdx], _moduleName];
         };
-        _y params ["", "_icon"];
-        _ctrl tvSetData [[_categoryIdx, _moduleIdx], "module_f"];
+        _y params ["_code", "_icon"];
+        private _moduleClass = if (_code isEqualType "") then {_code} else {"module_f"};
+        _ctrl tvSetData [[_categoryIdx, _moduleIdx], _moduleClass];
         _ctrl tvSetPicture [[_categoryIdx, _moduleIdx], _icon];
     } forEach _y;
     _ctrl tvSort [[_categoryIdx], false];
 } forEach ACL_registeredModules;
 _ctrl tvSort [[], false];
+
