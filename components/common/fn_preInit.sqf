@@ -22,7 +22,7 @@ ACL_fnc_waitUntilAndExecute = {ACL_waitUntilAndExecute_queue pushBack _this};
 ["ACL_onEachFrame", "onEachFrame", {
     for "_i" from (count ACL_waitAndExecute_queue - 1) to 0 step -1 do {
         (ACL_waitAndExecute_queue select _i) params ["_code", "_args", "_time"];
-        if (_time >= time) then {
+        if (_time <= time) then {
             _args call _code;
             ACL_waitAndExecute_queue deleteAt _i
         };
