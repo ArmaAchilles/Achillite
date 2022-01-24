@@ -12,27 +12,27 @@ ACL_fnc_removeObjects = {
     [getAssignedCuratorLogic player, [_this, true]] remoteExecCall ["removeCuratorEditableObjects", 2];
 };
 
-ACL_waitAndExecute_queue = [];
-ACL_waitUntilAndExecute_queue = [];
+ACL_waitAndExecuteQueue = [];
+ACL_waitUntilAndExecuteQueue = [];
 ACL_fnc_waitAndExecute = {
     _this set [2, time + (_this select 2)];
-    ACL_waitAndExecute_queue pushBack _this;
+    ACL_waitAndExecuteQueue pushBack _this;
 };
-ACL_fnc_waitUntilAndExecute = {ACL_waitUntilAndExecute_queue pushBack _this};
+ACL_fnc_waitUntilAndExecute = {ACL_waitUntilAndExecuteQueue pushBack _this};
 ["ACL_onEachFrame", "onEachFrame", {
-    for "_i" from (count ACL_waitAndExecute_queue - 1) to 0 step -1 do {
-        (ACL_waitAndExecute_queue select _i) params ["_code", "_args", "_time"];
+    for "_i" from (count ACL_waitAndExecuteQueue - 1) to 0 step -1 do {
+        (ACL_waitAndExecuteQueue select _i) params ["_code", "_args", "_time"];
         if (_time <= time) then {
             _args call _code;
-            ACL_waitAndExecute_queue deleteAt _i
+            ACL_waitAndExecuteQueue deleteAt _i
         };
     };
 
-    for "_i" from (count ACL_waitUntilAndExecute_queue - 1) to 0 step -1 do {
-        (ACL_waitUntilAndExecute_queue select _i) params ["_cond", "_code", ["_args", []]];
+    for "_i" from (count ACL_waitUntilAndExecuteQueue - 1) to 0 step -1 do {
+        (ACL_waitUntilAndExecuteQueue select _i) params ["_cond", "_code", ["_args", []]];
         if (_args call _cond) then {
             _args call _code;
-            ACL_waitUntilAndExecute_queue deleteAt _i
+            ACL_waitUntilAndExecuteQueue deleteAt _i
         };
     };
 }] call BIS_fnc_addStackedEventHandler
