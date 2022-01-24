@@ -75,7 +75,7 @@ switch (_ctrlType) do {
             params ["_ctrl", "_sel"];
             _ctrl setVariable ["ACL_data", _sel];
             true
-        ];
+        }];
     };
 };
 
