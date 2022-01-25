@@ -101,29 +101,28 @@ if __name__ == '__main__':
     print('PROCESSING COMPONENTS')
     print('---------------------')
     print()
-    i_fn = 0
+    i_fnc = 0
     preInitBody = ''
     initBody = ''
     postInitBody = ''
     for component_dir in src_root.iterdir():
         if component_dir.is_file():
             continue
-        component_name = component_dir.stem
-        for fn_file in component_dir.glob('fn_*.sqf'):
-            fn_name = fn_file.stem[3:]
-            content = preprocess(fn_file)
-            if fn_name == 'preInit':
-                preInitBody += f'{content};'
-            elif fn_name == 'postInit':
-                postInitBody += f'{content};'
+        for sqf_file in component_dir.glob('*.sqf'):
+            sqf_stem = sqf_file.stem
+            content = preprocess(sqf_file)
             # Execute module registration directly
-            elif component_name == 'modules':
+            if sqf_stem.startswith('init'):
                 initBody += f'{content};'
+            elif sqf_stem == 'XEH_preInit':
+                preInitBody += f'{content};'
+            elif sqf_stem == 'XEH_postInit':
+                postInitBody += f'{content};'
             # Store all other functions in variables
             else:
-                fn_var = f'{meta_data["MOD_PREFIX"]}_fnc_{fn_name}'
-                preInitBody += f'{fn_var}={{{content}}};'
-            i_fn += 1
+                fnc_var = f'{meta_data["MOD_PREFIX"]}_{sqf_stem}'
+                preInitBody += f'{fnc_var}={{{content}}};'
+            i_fnc += 1
     body = preInitBody + initBody + postInitBody
     print(f'Processed {i_fn} functions, {len(body.encode("utf8")) / 1e6:.3f} MB in total.')
     print()
