@@ -1,0 +1,16 @@
+name: Build
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v2
+      - name: Build
+        run: python3 tools/build.py
