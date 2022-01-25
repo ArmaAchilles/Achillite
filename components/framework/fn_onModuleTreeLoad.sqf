@@ -29,8 +29,9 @@ _display displayAddEventHandler ["Unload", ACL_fnc_onModuleTreeUnload];
     };
     if (_categoryIdx < 0) then {
         _categoryIdx =  _ctrl tvAdd [[], _categoryName];
-        _ctrl tvSetPicture [[_categoryIdx], "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeRecent_ca.paa"];
     };
+    _ctrl tvSetPicture [[_categoryIdx], "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeRecent_ca.paa"];
+
     {
         private _moduleName = _x;
         private _moduleIdx = -1;
