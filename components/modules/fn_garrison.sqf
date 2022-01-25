@@ -3,6 +3,8 @@
 [
     "AI", "Garrison Group",
     {
+        if (isNil {[_this, ["Man"], false] call ACL_fnc_checkModuleTarget}) exitWith {};
+
         ["Garrison Group", [
                 [
                     "EDIT",

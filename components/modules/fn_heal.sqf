@@ -3,7 +3,8 @@
 [
     "Players", "Heal",
     {
-        params ["", "_unit"];
+        private _unit = [_this, ["Man"]] call ACL_fnc_checkModuleTarget;
+        if (isNil "_unit") exitWith {};
 
         if ((missionNamespace getVariable ["BIS_revive_mode", 0]) != 0) then {
             ["#rev", 1, _unit] call BIS_fnc_reviveOnState;
@@ -11,5 +12,6 @@
         } else {
             _unit setDamage 0;
         };
+        "UNIT HEALED" call ACL_fnc_showZeusMessage;
     }
 ] call ACL_fnc_registerModule

@@ -54,11 +54,13 @@ ACL_ambientAnimCombatList = [
 [
     "AI", "Ambient Animation",
     {
-        params ["", "_unit"];
+        private _unit = [_this, ["Man"], false] call ACL_fnc_checkModuleTarget;
+        if (isNil "_unit") exitWith {};
 
         if ((_unit getVariable ["BIS_fnc_ambientAnim__animset", ""]) isNotEqualTo "") exitWith
         {
             _unit call BIS_fnc_ambientAnim__terminate;
+            "ANIMATION TERMINATED" call ACL_fnc_showZeusMessage;
         };
 
         ["Ambient Animation", [
@@ -76,11 +78,13 @@ ACL_ambientAnimCombatList = [
 [
     "AI", "Ambient Animation (Combat)",
     {
-        params ["", "_unit"];
+        private _unit = [_this, ["Man"], false] call ACL_fnc_checkModuleTarget;
+        if (isNil "_unit") exitWith {};
 
         if ((_unit getVariable ["BIS_fnc_ambientAnim__animset", ""]) isNotEqualTo "") exitWith
         {
             _unit call BIS_fnc_ambientAnim__terminate;
+            "ANIMATION TERMINATED" call ACL_fnc_showZeusMessage;
         };
 
         ["Ambient Animation (Combat)", [

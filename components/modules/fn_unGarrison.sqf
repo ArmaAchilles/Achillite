@@ -3,7 +3,10 @@
 [
     "AI", "Un-Garrison Group",
     {
-        private _group = group (_this select 1);
+        private _unit = [_this, ["Man"], false] call ACL_fnc_checkModuleTarget;
+        if (isNil "_unit") exitWith {};
+
+        private _group = group _unit;
         private _leader = leader _group;
         {
             _x enableAI "PATH";
@@ -15,5 +18,7 @@
                 _x doFollow _leader;
             };
         } forEach units _group;
+
+        "GARRISON TERMINATED" call ACL_fnc_showZeusMessage;
     }
 ] call ACL_fnc_registerModule;
