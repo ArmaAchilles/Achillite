@@ -77,4 +77,4 @@ Please use our [Issue Tracker](https://github.com/ArmaAchilles/Achillite/issues)
 Achillite is licensed under the The GNU General Public License v3.0 ([GPLv3](https://github.com/ArmaAchilles/Achillite/blob/main/LICENSE)).
 
 ## Disclaimer
-Depending on the setting of the Zeus server, certain remote executions may lead to a kick from the server. Use this composition.
+Depending on the setting of the Zeus server, certain remote executions may lead to a kick from the server. Use this composition at your own risk.
