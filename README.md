@@ -26,7 +26,7 @@ It is partially based on [Zeus Enhanced](https://github.com/zen-mod/ZEN) and the
 If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enhanced](https://github.com/zen-mod/ZEN) instead.
 
 ## Installation
-1. Subscribe to the composition on the Steam Workshop or get the composition manually from the [GitHub release](https://github.com/ArmaAchilles/Achillite/releases).
+1. Subscribe to the composition on the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2730828222) or get the composition manually from the [GitHub release](https://github.com/ArmaAchilles/Achillite/releases).
 2. Play as Zeus.
 3. Place the "Achillite Initializer" composition found in the category "Other".
 4. Have fun!
