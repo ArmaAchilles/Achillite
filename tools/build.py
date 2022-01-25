@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import shutil
 import json
 import re
 from string import Template
@@ -91,6 +92,8 @@ def build_composition(init_body):
     with open(composition_dir / 'header.sqe', 'w') as stream:
         stream.write(body)
 
+    shutil.make_archive(build_root / meta_data["MOD_NAME"], 'zip', composition_dir)
+
 if __name__ == '__main__':
     if validator():
         raise RuntimeError('SQF Validation FAILED')
@@ -122,7 +125,7 @@ if __name__ == '__main__':
                 preInitBody += f'{fn_var}={{{content}}};'
             i_fn += 1
     body = preInitBody + initBody + postInitBody
-    print(f'Processed {i_fn} functions, {len(body.encode("utf8")) / 1e3:.1f} KB in total.')
+    print(f'Processed {i_fn} functions, {len(body.encode("utf8")) / 1e6:.3f} MB in total.')
     print()
     print('BUILDING COMPOSITION')
     print('---------------------')
