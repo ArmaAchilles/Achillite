@@ -1,6 +1,6 @@
 version=54;
 name="Achillite Initializer";
-author="Kex";
+author="Achillite Dev Team";
 category="EdSubcat_Default";
 requiredAddons[]=
 {
