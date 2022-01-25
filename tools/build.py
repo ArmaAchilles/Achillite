@@ -124,7 +124,7 @@ if __name__ == '__main__':
                 preInitBody += f'{fnc_var}={{{content}}};'
             i_fnc += 1
     body = preInitBody + initBody + postInitBody
-    print(f'Processed {i_fn} functions, {len(body.encode("utf8")) / 1e6:.3f} MB in total.')
+    print(f'Processed {i_fnc} functions, {len(body.encode("utf8")) / 1e6:.3f} MB in total.')
     print()
     print('BUILDING COMPOSITION')
     print('---------------------')
