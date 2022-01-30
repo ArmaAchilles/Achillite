@@ -16,3 +16,8 @@ if (typeOf _logic == "module_f") then {
     [getPosASL _logic, _entityUnderCursor] call _code;
     deleteVehicle _logic;
 };
+
+if (_logic isKindOf "module_f") then {
+    // Fix copy/pasted modules that use BI's module framework
+    _logic setVariable ["BIS_fnc_initModules_activate", true];
+};
