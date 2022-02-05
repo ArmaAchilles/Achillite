@@ -7,5 +7,6 @@ _curator removeAllEventHandlers "CuratorGroupDoubleClicked";
 _curator removeAllEventHandlers "CuratorWaypointDoubleClicked";
 _curator removeAllEventHandlers "CuratorMarkerDoubleClicked";
 _curator addEventHandler ["CuratorObjectPlaced", ACL_fnc_onModulePlaced];
+_curator addEventHandler ["CuratorGroupPlaced", ACL_fnc_onGroupPlaced];
 
 [] call ACL_fnc_onModuleTreeLoad;
