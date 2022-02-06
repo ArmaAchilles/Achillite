@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 [
-    "AI", "Seek and Destroy",
+    "Task", "Seek and Destroy",
     {
         private _unit = [_this, ["AllVehicles"], false] call ACL_fnc_checkModuleTarget;
         if (isNil "_unit") exitWith {};

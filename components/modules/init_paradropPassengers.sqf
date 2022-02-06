@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 [
-    "Support", "Paradrop Passengers",
+    "Task", "Paradrop Passengers",
     {
         private _aircraft = [_this, ["Helicopter", "Plane"], false] call ACL_fnc_checkModuleTarget;
         if (isNil "_aircraft") exitWith {};
