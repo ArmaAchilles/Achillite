@@ -7,7 +7,7 @@ _units = _units apply {vehicle _x};
 _units = _units arrayIntersect _units;
 
 // Ensure proper spacing among units
-private _gridSize = TELEPORT_SPACING + selectMax (_units apply {(sizeOf typeOf _x) / 2});
+private _gridSize = TELEPORT_SPACING + 0.5 * selectMax (_units apply {(sizeOf typeOf _x)});
 private _nGrid = ceil sqrt count _units;
 private _offset = _gridSize * floor (_nGrid / 2);
 private _startPos = _pos vectorDiff [_offset, _offset, 0];

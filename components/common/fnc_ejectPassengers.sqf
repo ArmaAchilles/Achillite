@@ -18,3 +18,11 @@ private _passengers = (crew _vehicle) select {alive _x && {(assignedVehicleRole 
         }, _x, _forEachIndex * EJECT_DELAY
     ] call ACL_fnc_waitAndExecute;
 } forEach _passengers;
+
+if (getVehicleCargo _vehicle isNotEqualTo []) then {
+    [
+        {
+            _this setVehicleCargo objNull;
+        }, _vehicle, 0.5 * count _passengers * EJECT_DELAY
+    ] call ACL_fnc_waitAndExecute;
+};

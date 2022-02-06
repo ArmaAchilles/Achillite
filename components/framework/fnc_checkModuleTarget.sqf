@@ -8,7 +8,7 @@ params [
 ];
 _moduleParams params ["", "_entity"];
 
-if (isNull _entity) exitWith {
+if (isNull _entity || !(_entity isEqualType objNull)) exitWith {
     "HAS TO BE PLACED ON AN ENTITY" call ACL_fnc_showZeusErrorMessage;
     nil // Return value
 };

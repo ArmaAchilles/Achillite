@@ -1,6 +1,9 @@
 #include "script_component.hpp"
 
-[_this, {
-    params ["_objects", "_switchOn"];
-    {[_x, _switchOn] call BIS_fnc_switchLamp} forEach _objects;
-}] remoteExecCall ["call", 0, "ACL_switchLamp"];
+params ["_objects", "_switchOn"];
+private _mode = ["OFF", "ON"] select _switchOn;
+
+{
+    private _jip = [_x, "ACL_switchLamp"] call ACL_fnc_jipId;
+    [_x, _mode] remoteExecCall ["switchLight", 0, _jip];
+} forEach _objects;

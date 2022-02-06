@@ -20,5 +20,6 @@
 #define IDC_RSCDISPLAYATTRIBUTES_CONTENT        30003
 #define IDC_RSCDISPLAYATTRIBUTES_BUTTONCUSTOM   30004
 
-#define LABEL_BACKGROUND_COLOR                  [0, 0, 0, 0.5]
-#define FIELD_BACKGROUND_COLOR                  [1, 1, 1, 0.1]
+#define LABEL_BG_COLOR                          [0, 0, 0, 0.5]
+#define FIELD_BG_COLOR                          [1, 1, 1, 0.1]
+#define COMBO_BG_COLOR                          [0, 0, 0, 1]
