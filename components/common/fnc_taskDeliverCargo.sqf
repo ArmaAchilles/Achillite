@@ -8,11 +8,13 @@ _pilot allowFleeing 0;
 
 switch (true) do {
     case !(isNull isVehicleCargo _cargo): {
-        (group _aircraft) addWaypoint [_pos, 10];
         [_aircraft, _pos] call ACL_fnc_taskParadrop;
+        private _wp = (group _aircraft) addWaypoint [_pos, 0];
+        _wp setWaypointType "SCRIPTED";
+        _wp setWaypointStatements ["unitReady vehicle this", ""];
     };
     case (ropeAttachedTo _cargo isEqualTo _aircraft): {
-        private _wp = (group _aircraft) addWaypoint [_pos, 10];
+        private _wp = (group _aircraft) addWaypoint [_pos, 0];
         _wp setWaypointType "UNHOOK";
     };
 };
