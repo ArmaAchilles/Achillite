@@ -9,7 +9,6 @@ _pilot setSkill 1;
 _pilot allowFleeing 0;
 
 private _movePos = _pos getPos [1000, _aircraft getDir _pos];
-systemChat str [_aircraft, _passengerCount, _movePos];
 _aircraft doMove _movePos;
 [
     {
