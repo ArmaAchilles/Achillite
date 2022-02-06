@@ -17,7 +17,7 @@ if (isNil "ACL_suppliesDelivererCache") then {
 };
 
 [
-    "Support", "Deliver Supplies",
+    "Task", "Deliver Supplies",
     {
         private _box = [_this] call ACL_fnc_checkModuleTarget;
         if (isNil "_box") exitWith {};
@@ -48,12 +48,12 @@ if (isNil "ACL_suppliesDelivererCache") then {
                             private _aircraft = [_startPos, _startPos getDir _pos, _type, _side] call ACL_fnc_spawnVehicle;
                             if !([_aircraft, _box] call ACL_fnc_canLoadCargo) exitWith {
                                 "AIRCRAFT CANNOT LOAD CARGO" call ACL_fnc_showZeusErrorMessage;
-                                [_aircraft, _startPos] call ACL_fnc_taskDespawn;
+                                [group _aircraft, _startPos] call ACL_fnc_taskDespawn;
                             };
 
                             [_aircraft, _box] call ACL_fnc_loadCargoInstant;
                             [_aircraft, _box, _pos] call ACL_fnc_taskDeliverCargo;
-                            [_aircraft, _startPos, 2] call ACL_fnc_taskDespawn;
+                            [group _aircraft, _startPos, 2] call ACL_fnc_taskDespawn;
                         };
                     }, [_side, _type]
                 ] call ACL_fnc_selectPosition;
