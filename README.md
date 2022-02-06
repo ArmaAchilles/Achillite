@@ -35,11 +35,11 @@ If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enh
 ### Modules
 - [x] Ambient Animation
 - [x] Garrison Buildings
-- [x] Paradrop
 - [x] Set Captive
 - [x] Toggle Attachment
+- [x] Hide Terrain Objects
 - [x] Toggle Lamps
-- [x] Artillery
+- [x] Artillery Fire Mission
 - [x] Add/Remove Full Arsenal
 - [x] Change Group's Side
 - [x] Change Side Relations
@@ -49,6 +49,11 @@ If you are looking for a full-fledged Zeus editor expansion, check out [Zeus Enh
 - [x] Teleport Players
 - [x] Enable Respawn Protection
 - [x] Set Respawn Time
+- [x] Show Date and Location
+- [x] Deliver Supplies
+- [x] Move to Despawn
+- [x] Paradrop Passengers
+- [x] Seek and Destroy
 - [x] Global Hint
 - [x] Update Editable Objects
 - [ ] _TBD_
